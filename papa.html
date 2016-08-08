@@ -70,16 +70,28 @@
     </div>
   </div>
   <script>
-		HelloDWR.getFreqList(function(list){
+		HelloDWR.getArxList(function(list){
 			var data = {
 				labels: list[0],
 				series: [list[1]]
 			};
 			var options = {
-      	height: '500px'
+      	height: '500px',
+				showLine: false
       };
 	    new Chartist.Line('#chart1', data, options);
 		});
+	//	HelloDWR.getArxList(function(n){
+	//		var data = {
+	//			labels: n[0],
+	//			series: [n[1]]
+	//		};
+	//		var option = {
+	//			height: '500px',
+	//			showLine: false
+	//		}
+	//		new Chartist.Line('#chart2', data, options);
+	//	});
   </script>
 </body>
 </html>

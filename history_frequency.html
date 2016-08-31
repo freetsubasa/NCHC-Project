@@ -13,8 +13,7 @@
   <script src="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
 	<script type='text/javascript' src='/WSHMS/dwr/engine.js'></script>
 	<script type='text/javascript' src='/WSHMS/dwr/interface/HelloDWR.js'></script>
-	<script type='text/javascript' src='/WSHMS/dwr/util.js'></script>	
-	<script src="https://code.highcharts.com/highcharts.js"></script>
+	<script type='text/javascript' src='/WSHMS/dwr/util.js'></script>script<script src="https://code.highcharts.com/highcharts.js"></script>
 	<style>
 		body { padding-top: 70px;}
 	</style>
@@ -33,9 +32,9 @@
 			</div>
 			<div class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
-					<li><a href="#">Overview <span class="sr-only">(current)</span></a></li>
+					<li><a href="immediate_vibration.html">Overview <span class="sr-only">(current)</span></a></li>
 					<li class="dropdown">
-						<a href="immediate_vibration.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> 即時監測 <span class="caret"></span></a>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> 即時監測 <span class="caret"></span></a>
 						<ul class="dropdown-menu" role="menu">
             	<li><a href="immediate_vibration.html"> 振動監測</a></li>
             	<li><a href="immediate_frequency.html"> 頻率響應</a></li>
@@ -107,8 +106,7 @@
             data: list[1]
         }]
     })
-		});			
-  </script>
+		});data  </script>
   <script>
     HelloDWR.getFreqList(function(list){
     $('#container2').highcharts({
@@ -191,3 +189,4 @@
   </script>
 </body>
 </html>
+

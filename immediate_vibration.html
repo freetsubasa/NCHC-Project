@@ -7,21 +7,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=10; IE=9; IE=8; IE=7" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
   <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/united/bootstrap.min.css" rel="stylesheet" integrity="sha384-0UBL8wxZ28kqJ8w8N8RUV0odBG5w8D/Y+rb+o7hr2F3dS9twlAE8S7VUtVSRe5cc" crossorigin="anonymous">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
 	<script type='text/javascript' src='/WSHMS/dwr/engine.js'></script>
 	<script type='text/javascript' src='/WSHMS/dwr/interface/HelloDWR.js'></script>
 	<script type='text/javascript' src='/WSHMS/dwr/util.js'></script>	
 	<script src="https://code.highcharts.com/highcharts.js"></script>
-
-	<link rel="stylesheet" href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
-	<script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
-
 	<style>
 		body { padding-top: 70px;}
-		.ct-series-a .ct-line {
-			stroke-width: 1px;
-		}
 	</style>
 </head>
 <body>
@@ -38,11 +33,22 @@
 			</div>
 			<div class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
-					<li><a href="#">Floor 1</a></li>
-					<li><a href="#">Floor 2</a></li>
-					<li><a href="#">Floor 3</a></li>
-					<li><a href="#">Floor 5</a></li>
+					<li><a href="#">Overview</a></li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> 即時監測 <span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+            	<li><a href="immediate_vibration.html"> 振動監測</a></li>
+            	<li class="active"><a href="immediate_frequency.html"> 頻率響應</a></li>
+          	</ul>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> 歷史線圖 <span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="history_vibration.html"> 振動監測</a></li>
+							<li><a href="history_frequency.html"> 頻率響應</a></li>
+						</ul>
+					</li>
+					<li><a href="arx.html">Arx 圖表</a></li>
 				</ul>
 			</div>
 		</div>

@@ -14,6 +14,8 @@
 	<script type='text/javascript' src='/WSHMS/dwr/engine.js'></script>
 	<script type='text/javascript' src='/WSHMS/dwr/interface/HelloDWR.js'></script>
 	<script type='text/javascript' src='/WSHMS/dwr/util.js'></script>	
+	<script src="https://code.highcharts.com/highcharts.js"></script>
+  <script type="text/javascript" src="papa.js"></script>
 	<style>
 		body { padding-top: 70px;}
 	</style>
@@ -33,10 +35,20 @@
 			<div class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
-					<li><a href="#">Floor 1</a></li>
-					<li><a href="#">Floor 2</a></li>
-					<li><a href="#">Floor 3</a></li>
-					<li><a href="#">Floor 5</a></li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> 即時監測 <span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+            	<li><a href="1.html"> 振動監測</a></li>
+            	<li><a href="2.html"> 頻率響應</a></li>
+          	</ul>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> 歷史線圖 <span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="old_1.html"> 振動監測</a></li>
+							<li><a href="old_2.html"> 頻率響應</a></li>
+						</ul>
+					</li>
 				</ul>
 			</div>
 		</div>
@@ -63,35 +75,136 @@
 						</div>
 					</div>
 					<div class="col-md-9">
-        		<div class="ct-chart ct-golden-section" id="chart1"></div>
-      		</div>
+      			<div id="container1" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+            <div id="container2" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+            <div id="container3" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+					</div>
 				</div>
 			</div>
     </div>
   </div>
   <script>
-		HelloDWR.getArxList(function(list){
-			var data = {
-				labels: list[0],
-				series: [list[1]]
-			};
-			var options = {
-      	height: '500px',
-				showLine: false
-      };
-	    new Chartist.Line('#chart1', data, options);
-		});
-	//	HelloDWR.getArxList(function(n){
-	//		var data = {
-	//			labels: n[0],
-	//			series: [n[1]]
-	//		};
-	//		var option = {
-	//			height: '500px',
-	//			showLine: false
-	//		}
-	//		new Chartist.Line('#chart2', data, options);
-	//	});
+		HelloDWR.getLastFreqList_withAxis_withBetweenOffsetLength("AccelerateX" ,"2016-08-11 12:33:00.000" , 10,function(list){
+    $('#container1').highcharts({
+        title: {
+            text: '頻率響應分析',
+            x: -20 //center
+        },
+        subtitle: {
+            text: 'Source: NCHC',
+            x: -20
+        },
+        xAxis: {
+						title:{
+							text: ' '
+				},
+            categories: list[0]
+        },
+        yAxis: {
+            title: {
+                text: ' '
+            },
+            plotLines: [{
+                value: 0,
+                width: 1,
+                color: '#808080'
+            }]
+        },
+        tooltip: {
+            valueSuffix: ' '
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle',
+            borderWidth: 0
+        },
+        series: [{
+            name: '1',
+            data: list[1]
+        }]
+    })
+		});			
+  </script>
+  <script>
+    HelloDWR.getLastFreqList_withAxis_withBetweenOffsetLength("AccelerateX" ,"2016-08-11 12:33:00.000" , 10,function(list){
+    $('#container2').highcharts({
+      title: {
+        text: '頻率響應分析',
+        x: -20 //center
+      },
+      subtitle: {
+        text: 'Source: NCHC',
+        x: -20
+      },
+      xAxis: {
+        categories: list[2]
+      },
+      yAxis: {
+        title: {
+          text: '(Hz)'
+        },
+        plotLines: [{
+          value: 0,
+          width: 1,
+          color: '#808080'
+        }]
+      },
+      tooltip: {
+        valueSuffix: ' '
+      },
+      legend: {
+        layout: 'vertical',
+        align: 'right',
+        verticalAlign: 'middle',
+        borderWidth: 0
+      },
+      series: [{
+        name: '1',
+        data: list[3]
+      }]
+    })
+  });     
+  </script>
+  <script>
+  HelloDWR.getLastFreqList_withAxis_withBetweenOffsetLength("AccelerateX" ,"2016-08-11 12:33:00.000" , 10,function(list){
+  $('#container3').highcharts({
+    title: {
+      text: '頻率響應分析',
+      x: -20 //center
+    },
+    subtitle: {
+      text: 'Source: NCHC',
+      x: -20
+    },
+    xAxis: {
+      categories: list[4]
+    },
+    yAxis: {
+      title: {
+        text: '(Hz)'
+      },
+      plotLines: [{
+        value: 0,
+        width: 1,
+        color: '#808080'
+      }]
+    },
+    tooltip: {
+      valueSuffix: ' '
+    },
+    legend: {
+      layout: 'vertical',
+      align: 'right',
+      verticalAlign: 'middle',
+      borderWidth: 0
+    },
+    series: [{
+      name: '1',
+      data: list[5]
+    }]
+  })
+});     
   </script>
 </body>
 </html>
